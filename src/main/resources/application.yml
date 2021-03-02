@@ -1,0 +1,21 @@
+#mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath*:mybatis/mapper/*Mapper.xml
+#连接池
+spring:
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/abcd?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: root
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        minimum-idle: 5
+        maximum-pool-size: 10
+        pool-name: spiderDataSource
+        connection-timeout: 30000 #30*1000ms
+        idle-timeout: 600000 #10*60*1000ms
+        max-lifetime: 1800000 #30*60*1000ms
+        connection-test-query: select 1
+
